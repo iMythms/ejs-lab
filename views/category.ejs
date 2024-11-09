@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/globals.css" />
+		<title>Category - <%= category %></title>
+	</head>
+	<body>
+		<%- include('./partials/navbar') %>
+		<h1><%= category.charAt(0).toUpperCase() + category.slice(1) %> Menu</h1>
+		<ul>
+			<% menuItems.forEach(item => { %>
+			<li>
+				<strong><%= item.name %></strong> <br />
+				Price: $<%= item.price %> <br />
+				Rating: <%= item.rating %> stars <br />
+				Description: <%= item.details %>
+			</li>
+			<br />
+			<% }) %>
+		</ul>
+		<% if (menuItems.length === 0) { %>
+		<p>No items available in this category.</p>
+		<% } %>
+	</body>
+</html>
